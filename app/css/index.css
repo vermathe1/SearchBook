@@ -1,0 +1,59 @@
+.modal-error{
+	position: fixed;
+	left:0;
+	right:0;
+	top:0;
+	bottom: 0;
+	max-width:25%;
+	max-height:12%;
+	margin:auto auto;
+}
+.block{
+	display: block;
+}
+.inline-block{
+	display: inline-block;
+}
+#imageHolder,#booksHolder{
+	padding:5px;
+	width:19%;
+	display:inline-block;
+	vertical-align:top;
+	opacity:1;
+}
+#imageHolder{position: relative;}*/
+#imageHolder a {padding:5px;}
+#imageHolder img {max-width: 90%;}
+#imageHolder p {padding:2px;}
+#imageHolder:hover{opacity:0.7; cursor: pointer;}
+#imageHolder:hover::after{
+	position: absolute;
+	content:'ADD BOOK';
+	left: 24%;
+	right:21%;
+	top:35%;
+	bottom: 0;
+	max-width:200px;
+	margin:auto auto;
+	display: inline-block;
+	cursor: pointer;
+	color:'#000000';
+}
+#booksHolder{padding:5px;}
+#booksHolder img {max-width:90%;}
+#booksHolder p{padding: 2px;}
+.recent-search-tab{
+	width:20%;
+	padding:20px;
+	vertical-align:top;
+}
+.info-tab{
+	width:80%;
+	padding:20px;
+}
+.my-chart{margin-left:20px;}
+.loading-img-cont{position:fixed;left:0;right:0;top:0;bottom:0;max-height:200px;max-width:200px;padding:20px;margin:auto auto;}
+.loading-img{max-width:70%;}
+
+	
+	
