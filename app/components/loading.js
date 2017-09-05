@@ -1,9 +1,9 @@
 import React from 'React';
 
-const LoadingImage=()=>{
+const LoadingImage = ()=>{
 	return(
-		<div className="loading-img-cont">
-			<img src = '../images/source.gif' className="loading-img block"/>
+		<div className = "loading-img-cont">
+			<img src = '../images/source.gif' className = "loading-img block"/>
 		</div>
 	);
 }

@@ -21,7 +21,7 @@
 	vertical-align:top;
 	opacity:1;
 }
-#imageHolder{position: relative;}*/
+#imageHolder{position: relative;}
 #imageHolder a {padding:5px;}
 #imageHolder img {max-width: 90%;}
 #imageHolder p {padding:2px;}
@@ -37,7 +37,7 @@
 	margin:auto auto;
 	display: inline-block;
 	cursor: pointer;
-	color:'#000000';
+	color:#000000;
 }
 #booksHolder{padding:5px;}
 #booksHolder img {max-width:90%;}
@@ -52,8 +52,15 @@
 	padding:20px;
 }
 .my-chart{margin-left:20px;}
-.loading-img-cont{position:fixed;left:0;right:0;top:0;bottom:0;max-height:200px;max-width:200px;padding:20px;margin:auto auto;}
+.loading-img-cont{
+	position:fixed;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	max-height:200px;
+	max-width:200px;
+	padding:20px;
+	margin:auto auto;
+}
 .loading-img{max-width:70%;}
-
-	
-	

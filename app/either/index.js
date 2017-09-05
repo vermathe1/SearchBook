@@ -4,8 +4,6 @@ export const Right=x=>({
 	map : f => Right(f(x)),
 	inspect: () => `Right(${x})`
 })
-
-
 export const Left=x=>({
 	fold: (f,g)=>f(x),
 	chain : f => left(x),

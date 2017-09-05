@@ -1,19 +1,12 @@
 import React from 'react';
 import {combineReducers} from 'redux';
-import {getItemFromLocalStorage} from '../localStorage';
 
 const searchingList =(state={'isloading':false},action)=>{
 	switch(action.type){
 		case "SEARCH_REQUEST":{
-			const valueInLocalStorage = getItemFromLocalStorage('search');
-			if(valueInLocalStorage === undefined){
-				var text = [action.searchingText]
-			}else{
-				var text = [action.searchingText,...(valueInLocalStorage.length > 10?valueInLocalStorage.slice(0,10):valueInLocalStorage)];
-			}
-		return Object.assign({},state,{
+			return Object.assign({},state,{
 				'isloading': true,
-				'searchingText':text
+				'search':[action.searchingText,...(state['search'].length>10 ? state['search'].slice(0,9):state['search'])]
 			});
 		}
 		case "RECEIVED_BOOK":{
@@ -27,18 +20,12 @@ const searchingList =(state={'isloading':false},action)=>{
 				'searchText': action.text
 			});
 		}
-		case "MY_BOOKS":{
-			const booksInLocalStorage = getItemFromLocalStorage('addedBooks');
-			if(booksInLocalStorage === undefined){
-				var mybooks = [action.mybooks];
-			}else{
-				var mybooks = [action.mybooks,...booksInLocalStorage];
-			}
+		case "ADD_BOOKS":{
 			return Object.assign({},state,{
-				'my_books': mybooks
+				'addedBooks': [...state['addedBooks'],action.mybooks]
 			});
 		}
-		case "chartYearChnage":{
+		case "CHART_YEAR_CHANGE":{
 			return Object.assign({},state,{
 				'selectedYear': action.year
 			});

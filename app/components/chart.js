@@ -1,48 +1,45 @@
 import React from "react";
-const LineChart = require("react-chartjs").Line;
-import {getItemFromLocalStorage} from '../localStorage';
+const LineChart  =  require("react-chartjs").Line;
 
-const ShowChart =(props)=>{
+const ShowChart = (props) =>{
 	return(
-		<div className="form">
-			<form onChange={e=>handleFormChange(e,props.dispatch)}>
+		<div className = "form">
+			<form onChange = {e =>handleFormChange(e,props.dispatch)}>
 				<select>
-					<option value ="select">Select</option>
-					<option value ="2017">2017</option>
-					<option value ="2018">2018</option>
-					<option value ="2019">2019</option>
+					<option value  = "select">Select</option>
+					<option value  = "2017">2017</option>
+					<option value  = "2018">2018</option>
+					<option value  = "2019">2019</option>
 				</select>
 			</form>
-			<LineChart data={getChartInfo(props.selectedYear)} width="300px" height="300px" />
+			<LineChart data = {getChartInfo(props)} width = "300px" height = "300px" />
 		</div>
 	);
-
 }
 
-const handleFormChange =(e,dispatch)=>{
+const handleFormChange = (e,dispatch)=>{
 	e.preventDefault();
 	if(e.target.value === "select"){
 		return;
 	}
-	dispatch({type:'chartYearChnage', year:e.target.value})
+	dispatch({type:'CHART_YEAR_CHANGE', year:e.target.value})
 }
 
-const getChartInfo=(year)=>{
-	const booksInfo = getItemFromLocalStorage('addedBooks');
-	const data = [0,0,0,0,0,0,0,0,0,0,0,0,0];
+const getChartInfo = (props)=>{
+	const booksInfo  =  props.books;
+	const year = props.selectedYear;
+	const data  =  [0,0,0,0,0,0,0,0,0,0,0,0,0];
 	if(booksInfo === undefined || year === undefined){
 		var booksCount = data;
 	}
 	else{
-		var booksCount = booksInfo.reduce((acc,addedBook)=>{
+		var booksCount = booksInfo.reduce((acc,addedBook) =>{
 			if(new Date(addedBook.addedOn).getFullYear() == year){
 				const addedOn = new Date(addedBook.addedOn);
 				acc[addedOn.getMonth()] = acc[addedOn.getMonth()]+1 || 1;	
 			}
 			return acc;
 		},data);
-
-
 	}
 	return {
 	    labels: [
@@ -69,7 +66,7 @@ const getChartInfo=(year)=>{
 	      pointHoverBorderWidth: 2,
 	      pointRadius: 1,
 	      pointHitRadius: 10,
-	      data: booksCount, // inserting booksCount here
+	      data: booksCount, 
 	      spanGaps: false
 	    }]
 	}

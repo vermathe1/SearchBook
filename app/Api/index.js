@@ -1,8 +1,6 @@
 import React from 'react';
 import {Right,Left} from '../either';
-import fetch from 'isomorphic-fetch';
 import axios from 'axios';
-
 export const API_HOST = 'https://openlibrary.org';
 
 class Api extends React.Component {
